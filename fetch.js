@@ -20,6 +20,7 @@ const getGenres = async () => {
   }
 };
 
+// return movies list
 const getMovies = async () => {
   const selectedGenre = getSelectedGenre();
   const discoverMovieEndpoint = "/discover/movie";
@@ -37,6 +38,7 @@ const getMovies = async () => {
   }
 };
 
+//return info of movie in param
 const getMovieInfo = async (movie) => {
   const movieId = movie.id;
   const movieEndpoint = `/movie/${movieId}`;
@@ -63,7 +65,7 @@ const showRandomMovie = async () => {
   const movies = await getMovies();
   const randomMovie = getRandomMovie(movies);
   const info = await getMovieInfo(randomMovie);
-  displayMovie(info);
+  displayMovie(info); // fuckup, displayInfo function not defined
 };
 
 getGenres().then(populateGenreDropdown);
