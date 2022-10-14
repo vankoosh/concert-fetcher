@@ -2,26 +2,21 @@ const input = document.querySelector(".input");
 const btn = document.querySelector(".btn");
 const text = document.querySelector(".text-field");
 const value = input.value;
-const seatGeekID = "Mjk2Nzk4NjZ8MTY2NTYwNTAzNS44MTE0Mzkz";
+const endpoint = "https://api.spotify.com/v1/artists/";
+const id = "7xjpPNWngnYl57VxpnbakE";
 
+const getData = async (id) => {
+  const urlToFetch = `${endpoint}${id}`;
 
-const getData = async () => {
-  
-  const performersEndpoint =
-    `https://api.seatgeek.com/2/performers?client_id=${seatGeekID}`;
-  
-  const baseURL = "https://api.seatgeek.com/2/events?client_id=" + seatGeekID;
-
-try {
-  const response = await fetch(performersEndpoint);
-  if (response.ok) {
-    const jsonResponse = await response.json();
-    const firstArtist = jsonResponse.performers[0];
-    console.log(firstArtist);
+  try {
+    const response = await fetch(urlToFetch);
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+    }
+  } catch (error) {
+    console.log(error);
   }
-} catch (error) {
-  console.log(error);
-}
-}
+};
 
 btn.addEventListener("click", getData);
