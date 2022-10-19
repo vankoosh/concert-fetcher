@@ -3,6 +3,7 @@ var voiceList = document.querySelector("#voiceList");
 var btnSpeak = document.querySelector("#btnSpeak");
 var btnStop = document.querySelector("#btnStop");
 var synth = window.speechSynthesis;
+
 var voices = [];
 
 PopulateVoices();
